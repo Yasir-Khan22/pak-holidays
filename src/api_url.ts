@@ -1,1 +1,2 @@
-// export const API_URL = "https://date.nager.at/api/v2/publicholidays/2020/US"; 
+// import { API_KEY } from "./config"
+// export const API_URL = `https://holidayapi.com/v1/holidays?pretty&country=PK&year=2023&key=${API_KEY}` 

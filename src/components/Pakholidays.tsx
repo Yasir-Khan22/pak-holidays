@@ -1,3 +1,5 @@
+import { API_URL } from "../config.ts"
+
 import { useState, useEffect } from "react";
 
 interface Holiday {
@@ -24,12 +26,11 @@ const Pakholidays = () => {
 
     // useEffect.
     useEffect(() => {
-        // fetchApiData()
         showPost();
     }, [])
 
 
-    const fetchURL = 'https://holidayapi.com/v1/holidays?pretty&country=PK&year=2023&key=75fc3910-569f-4b1c-ad3e-81120cac7169';
+    // const fetchURL = 'https://holidayapi.com/v1/holidays?pretty&country=PK&year=2023&key=75fc3910-569f-4b1c-ad3e-81120cac7169';
     
 
     async function fetchPosts(url: string) {
@@ -40,12 +41,10 @@ const Pakholidays = () => {
     }
 
     async function showPost() {
-        let posts = await fetchPosts(fetchURL);
+        let posts = await fetchPosts(API_URL);
         console.log(posts, "These are posts.")
 
-         // Filter holidays based on ID, assuming you want holidays with ID 2
          const filteredHolidays = posts.filter((holiday) => holiday.country === "PK");
-         // Set the filtered data in state
          setApiData(filteredHolidays);
  
          console.table(filteredHolidays);
