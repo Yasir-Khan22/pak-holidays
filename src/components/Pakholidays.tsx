@@ -1,5 +1,4 @@
-import { API_URL } from "../config.ts"
-
+import { API_URL } from "../config"
 import { useState, useEffect } from "react";
 
 interface Holiday {
@@ -29,10 +28,6 @@ const Pakholidays = () => {
         showPost();
     }, [])
 
-
-    // const fetchURL = 'https://holidayapi.com/v1/holidays?pretty&country=PK&year=2023&key=75fc3910-569f-4b1c-ad3e-81120cac7169';
-    
-
     async function fetchPosts(url: string) {
         let response = await fetch(url);
         let body = await response.json();
@@ -42,12 +37,8 @@ const Pakholidays = () => {
 
     async function showPost() {
         let posts = await fetchPosts(API_URL);
-        console.log(posts, "These are posts.")
-
          const filteredHolidays = posts.filter((holiday) => holiday.country === "PK");
          setApiData(filteredHolidays);
- 
-         console.table(filteredHolidays);
 
     }
 

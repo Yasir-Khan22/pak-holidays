@@ -1,7 +1,7 @@
 import './App.css'
 import Pakholidays from './components/Pakholidays'
-function App() {
 
+function App() {
   return (
     <>
      <Pakholidays/>
