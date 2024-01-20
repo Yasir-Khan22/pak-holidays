@@ -44,27 +44,27 @@ const Pakholidays = () => {
 
     return (
         <div>
-            <h1>Public Holidays of Pakistan.</h1>
-            <table>
-                <thead>
-                    <tr>
+            <h1 className="font-medium text-2xl text-center my-[2rem] mx-1">Public Holidays of Pakistan.</h1>
+            <table className="border-[1px] border-[gray] m-auto w-[65%] ">
+                <thead className="bg-gray-300">
+                    <tr className=" even:bg-gray-300">
                         <th>Name</th>
-                        <th>Date</th>
-                        <th>Observed Date</th>
-                        <th>Public</th>
-                        <th>Country</th>
+                        {/* <th>Date</th> */}
+                        <th className="px-2">Observed Date</th>
+                        <th className="px-1">Public</th>
+                        {/* <th>Country</th> */}
                         {/* <th>UUID</th> */}
                         <th>Weekday</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center " >
                     {apiData?.map((holiday) => (
-                        <tr key={holiday.uuid}>
-                            <td>{holiday.name}</td>
-                            <td>{holiday.date}</td>
-                            <td>{holiday.observed}</td>
+                        <tr key={holiday.uuid} className="even:bg-gray-300">
+                            <td className="text-center text-lg text-wrap w-1/3">{holiday.name}</td>
+                            {/* <td>{holiday.date}</td> */}
+                            <td className="text-[15px] my-3">{holiday.observed}</td>
                             <td>{holiday.public ? "Yes" : "No"}</td>
-                            <td>{holiday.country}</td>
+                            {/* <td>{holiday.country}</td> */}
                             {/* <td>{holiday.uuid}</td> */}
                             <td>{holiday.weekday.date.name}</td>
                         </tr>
