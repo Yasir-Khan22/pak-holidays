@@ -1,5 +1,7 @@
+import axios from "axios";
 import { API_URL } from "../config"
 import { useState, useEffect } from "react";
+import { HolidayAPI } from "holiday_api";
 
 interface Holiday {
     name: string;
@@ -29,10 +31,8 @@ const Pakholidays = () => {
     }, [])
 
     async function fetchPosts(url: string) {
-        let response = await fetch(url);
-        let body = await response.json();
-        // setApiData(body)
-        return body.holidays as Holiday[];
+        let response = await axios.get(url);
+        return response.data.holidays as Holiday[];
     }
 
     async function showPost() {
@@ -43,9 +43,9 @@ const Pakholidays = () => {
     }
 
     return (
-        <div>
+        <div> 
             <h1 className="font-medium text-2xl text-center my-[2rem] mx-1">Public Holidays of Pakistan.</h1>
-            <table className="border-[1px] border-[gray] m-auto w-[65%] ">
+            <table className="border-[1px] border-[gray] m-auto w-[65%] mb-10 ">
                 <thead className="bg-gray-300">
                     <tr className=" even:bg-gray-300">
                         <th>Name</th>
