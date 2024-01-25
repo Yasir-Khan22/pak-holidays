@@ -1,7 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../config"
 import { useState, useEffect } from "react";
-import { HolidayAPI } from "holiday_api";
 
 interface Holiday {
     name: string;
